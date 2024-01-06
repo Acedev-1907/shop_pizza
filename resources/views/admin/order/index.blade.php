@@ -1,0 +1,40 @@
+@extends('master.admin')
+@section('title', 'List of orders')
+@section('main')
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Order date</th>
+                <th>Status</th>
+                <th>Total Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($orders as $item)
+                <tr>
+                    <td scope="row">{{ $loop->index + 1 }}</td>
+                    <td>{{ $item->created_at->format('d/m/Y') }}</td>
+                    <td>
+                        @if ($item->status == 0)
+                            <span style="color: red">Unconfimred.</span>
+                        @elseif ($item->status == 1)
+                            <span style="color: green">Confirmed.</span>
+                        @elseif ($item->status == 2)
+                            <span style="color: green">Delivered.</span>
+                        @else
+                            <span style="color: red">Cancelled.</span>
+                        @endif
+                    </td>
+                    <td>{{ number_format($item->totalPrice) }} đ</td>
+                    <td>
+                        <a href="{{ route('order.show', $item->id) }}" class="btn btn-sm btn-primary">Detail</a>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+
+@stop
