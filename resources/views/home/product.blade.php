@@ -34,7 +34,7 @@
                                     aria-labelledby="itemOne-tab" tabindex="0">
                                     <a href="{{ asset('/upload/product') . '/' . $product->image }}" class="popup-image">
                                         <img id="big-img" src="{{ asset('/upload/product') . '/' . $product->image }}"
-                                            alt="{{ $product->name }}" style="width: 635px; height: 665px;">
+                                            alt="{{ $product->name }}" style="max-width: 635px; max-height: 665px;">
                                     </a>
                                 </div>
 
@@ -88,35 +88,62 @@
                                 <span class="title">Hurry Up! Sale ends in:</span>
                                 <div class="coming-time" data-countdown="2024/7/6"></div>
                             </div>
-                            <p>Meat provide well shaped fresh and the organic meat well animals is Humans have hunted
-                                schistoric times meat, the flesh</p>
+                            <p>{!! $product->description !!}</p>
                             <div class="shop-details-qty">
                                 <span class="title">Quantity :</span>
-                                <div class="shop-details-qty-inner">
-                                    <form action="#">
-                                        <div class="cart-plus-minus">
-                                            <input type="text" value="1">
+
+                                @if (auth('cus')->check())
+                                    <form action="{{ route('cart.add', $product->id) }}">
+                                        <div class="shop-details-qty-inner">
+                                            <div class="form-row">
+                                                <div class="cart-plus-minus">
+                                                    <input type="text" value="1" name="quantity">
+                                                </div>
+                                            </div>
+                                            <button class="purchase-btn">
+                                                Add to cart
+                                            </button>
                                         </div>
                                     </form>
-                                    <button class="purchase-btn">PURCHASE</button>
-                                </div>
+                                @else
+                                    <form action="{{ route('account.login') }}">
+                                        <div class="shop-details-qty-inner">
+                                            <div class="form-row">
+                                                <div class="cart-plus-minus">
+                                                    <input type="text" value="1" name="quantity">
+                                                </div>
+                                            </div>
+                                            <button class="purchase-btn"
+                                                onclick="alert('Vui lòng đăng nhập để thêm vào giỏ hàng')">
+                                                Add to cart
+                                            </button>
+                                        </div>
+                                    </form>
+                                @endif
                             </div>
-                            <a href="#" class="buy-btn">Buy it now</a>
-                            <div class="payment-method-wrap">
-                                <span class="title">GUARANTEED SAFE CHECKOUT:</span>
-                                <img src="assets/img/product/payment_method.png" alt="">
-                            </div>
-                            <div class="shop-add-Wishlist">
-                                <a href="#"><i class="far fa-heart"></i>Add to Wishlist</a>
-                            </div>
-                            <div class="sd-sku">
-                                <span class="title">SKU:</span>
-                                <a href="#">002</a>
-                            </div>
+
+                            {{-- <a href="#" class="buy-btn">Buy it now</a> --}}
+                            @if (auth('cus')->check())
+                                @if ($product->favorited)
+                                    <div class="shop-add-Wishlist">
+                                        <a title="Bỏ thích" style="color: #d81313;"
+                                            onClick="return confirm('Bạn có muốn bỏ thích không?')"
+                                            href="{{ route('home.favorite', $product->id) }}"><i
+                                                class="fas fa-heart fa-lg">
+                                            </i> Add to Wishlist</a>
+                                    </div>
+                                @else
+                                    <div class="shop-add-Wishlist">
+                                        <a title="Yêu thích" href="{{ route('home.favorite', $product->id) }}"><i
+                                                class="far fa-heart fa-lg"></i> Add to Wishlist</a>
+                                    </div>
+                                @endif
+                            @endif
                             <div class="sd-category">
                                 <span class="title">CATEGORY:</span>
                                 <ul class="list-wrap">
-                                    <li><a href="#">lipstick</a></li>
+                                    <li><a href="{{ route('home.product', $product->id) }}">{{ $product->cat->name }}</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

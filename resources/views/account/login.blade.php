@@ -33,7 +33,7 @@
                                         </div>
 
                                         <div class="form-grp">
-                                            <input name="password" type="text" placeholder="Your password *" required>
+                                            <input name="password" type="password" placeholder="Your password *" required>
                                             @error('password')
                                                 <div class="help-block">{{ $message }}</div>
                                             @enderror

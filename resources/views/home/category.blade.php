@@ -42,26 +42,6 @@
                 <div class="shop-inner-wrap">
                     <div class="row">
                         <div class="col-xl-9 col-lg-8">
-                            <div class="shop-top-wrap">
-                                <div class="row align-items-center">
-                                    <div class="col-md-6">
-                                        <div class="shop-showing-result">
-                                            <p>Showing 1–09 of 20 results</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="shop-ordering">
-                                            <select name="orderby" class="orderby">
-                                                <option value="Default sorting">Sort by Top Rating</option>
-                                                <option value="Sort by popularity">Sort by popularity</option>
-                                                <option value="Sort by average rating">Sort by average rating</option>
-                                                <option value="Sort by latest">Sort by latest</option>
-                                                <option value="Sort by latest">Sort by latest</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="shop-item-wrap">
                                 <div class="row">
                                     @foreach ($products as $prod)
@@ -149,9 +129,10 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- lọc sản phẩm --}}
                         <div class="col-xl-3 col-lg-4">
                             <div class="shop-sidebar">
-                                <div class="shop-widget">
+                                {{-- <div class="shop-widget">
                                     <h4 class="sw-title">FILTER BY</h4>
                                     <div class="price_filter">
                                         <div id="slider-range"></div>
@@ -165,7 +146,7 @@
                                             <button type="reset"><i class="far fa-trash-alt"></i>Clear all</button>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="shop-widget">
                                     <h4 class="sw-title">Category</h4>
                                     <div class="shop-cat-list">
@@ -212,33 +193,6 @@
                                                 </div>
                                             </div>
                                         @endforeach
-                                    </div>
-                                </div>
-                                <div class="shop-widget">
-                                    <h4 class="sw-title">instagram</h4>
-                                    <div class="sidebar-instagram">
-                                        <ul class="list-wrap">
-                                            <li>
-                                                <a href="#"><img
-                                                        src="{{ asset('upload/product/s_insta_img01.jpg') }}"
-                                                        alt=""></a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img src="{{ asset('upload/product/s_insta_img02.jpg') }}"
-                                                        alt=""></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><img
-                                                        src="{{ asset('upload/product/s_insta_img03.jpg') }}"
-                                                        alt=""></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><img
-                                                        src="{{ asset('upload/product/s_insta_img04.jpg') }}"
-                                                        alt=""></a>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>

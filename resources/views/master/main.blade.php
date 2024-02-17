@@ -54,11 +54,11 @@
                             <ul class="list-wrap">
                                 <li class="header-location">
                                     <i class="fas fa-map-marker-alt"></i>
-                                    33M Sun Central. New York
+                                    Nguyen Duy, District 8, Ho Chi Minh city.
                                 </li>
                                 <li>
                                     <i class="fas fa-envelope"></i>
-                                    <a href="mailto:info@example.com">info@example.com</a>
+                                    <a href="mailto:thanhqui19072000@gmail.com">thanhqui19072000@gmail.com</a>
                                 </li>
                             </ul>
                         </div>
@@ -102,12 +102,12 @@
                             <div class="mobile-nav-toggler"><i class="fas fa-bars"></i></div>
                             <nav class="menu-nav">
                                 <div class="logo">
-                                    <a href="index-2.html"><img src="{{ asset('/upload/logo/logo.png') }}"
-                                            alt="Logo"></a>
+                                    <a href="{{ route('home.index') }}"><img
+                                            src="{{ asset('/upload/logo/logo.png') }}" alt="Logo"></a>
                                 </div>
                                 <div class="navbar-wrap main-menu d-none d-lg-flex">
                                     <ul class="navigation">
-                                        <li class="{{ Request::is('/') ? 'active' : '' }} menu-item-has-children">
+                                        <li class="{{ Request::is('/') ? 'active' : '' }}">
                                             <a href="{{ route('home.index') }}">Home</a>
                                         </li>
                                         <li class="{{ Request::is('about') ? 'active' : '' }}">
@@ -151,7 +151,7 @@
                                             @endif
                                         </li>
                                         <li class="header-btn">
-                                            <a href="tel:0123456789" class="btn">+1 333 555 999</a>
+                                            <a href="tel:0799999985" class="btn">+84 799 999 985</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -258,9 +258,10 @@
                                 <h4 class="fw-title">about andspa</h4>
                                 <div class="footer-contact">
                                     <ul class="list-wrap">
-                                        <li>Centerl Park West La, New York</li>
-                                        <li><a href="tel:0123456789">+0 333 999 8899</a></li>
-                                        <li><a href="mailto:info@bemet.com">info@bemet.com</a></li>
+                                        <li>Nguyen Duy, District 8, Ho Chi Minh city.</li>
+                                        <li><a href="tel:0123456789">+84 079 4946 985</a></li>
+                                        <li><a href="mailto:thanhqui19072000@gmai.com">thanhqui19072000@gmai.com</a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="footer-content">
@@ -275,8 +276,8 @@
                                 <div class="footer-link">
                                     <ul class="list-wrap">
                                         <li><a href="contact.html">CURATION</a></li>
-                                        <li><a href="about.html">ABOUT US</a></li>
-                                        <li><a href="contact.html">MY ACCOUNT</a></li>
+                                        <li><a href="{{ route('home.about') }}">ABOUT US</a></li>
+                                        <li><a href="{{ route('account.profile') }}">MY ACCOUNT</a></li>
                                         <li><a href="contact.html">CONTACT</a></li>
                                         <li><a href="contact.html">SHIPPING & RETURNS</a></li>
                                     </ul>

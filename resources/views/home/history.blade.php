@@ -65,12 +65,13 @@
                     <br>
                     <div class="text-center">
                         @if ($carts->count())
-                            <a href="{{ route('home.allcategory') }}" class="btn">Continue shopping</a>
-                            <a class="btn" onclick="return confirm('Are you sure to delete all products?')"
+                            <a href="{{ route('home.allcategory') }}" class="btn wow fadeInUp">Continue shopping</a>
+                            <a class="btn wow fadeInUp mt-3"
+                                onclick="return confirm('Are you sure to delete all products?')"
                                 href="{{ route('cart.clear') }}">Clear Shopping</a>
-                            <a href="{{ route('order.checkout') }}" class="btn">Plance Order</a>
+                            <a href="{{ route('order.checkout') }}" class="btn wow fadeInUp mt-3">Plance Order</a>
                         @else
-                            <a href="{{ route('home.allcategory') }}" class="btn">Continue shopping</a>
+                            <a href="{{ route('home.allcategory') }}" class="btn wow fadeInUp mt-3">Continue shopping</a>
                         @endif
                     </div>
                 </div>

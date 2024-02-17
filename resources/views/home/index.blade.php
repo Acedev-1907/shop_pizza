@@ -22,8 +22,8 @@
                                     now</a>
                             </div>
                             <div class="banner-img text-center wow fadeInUp" data-wow-delay=".8s">
-                                <img src="{{ asset('/upload/product') . '/' . $top_product->image }}" style="width: 30%"
-                                    alt="">
+                                <img src="{{ asset('/upload/product') . '/' . $top_product->image }}"
+                                    style="max-width: 340px" alt="">
                             </div>
                         </div>
                     </div>
@@ -219,8 +219,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title text-center mb-70">
-                            <span class="sub-title">Organic Shop</span>
-                            <h2 class="title">Our Organic Products</h2>
+                            <span class="sub-title">Pizza Shop</span>
+                            <h2 class="title">Top 1 pizza shop in Vietnam</h2>
                             <div class="title-shape" data-background="upload/images/title_shape.png"></div>
                         </div>
                     </div>
@@ -360,7 +360,7 @@
                             <img src="{{ asset('assets/img/icon/cta_icon.png') }}" alt="">
                             <h2 class="title">Get a Free Quote</h2>
                             <div class="cta-bottom">
-                                <a href="shop.html" class="btn">buy now</a>
+                                <a href="{{ route('home.allcategory') }}" class="btn">Choose Pizza Now</a>
                                 <a href="tel:0123456789" class="btn call-btn"><i class="fas fa-headphones-alt"></i>make a
                                     call</a>
                             </div>

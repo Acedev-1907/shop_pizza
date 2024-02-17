@@ -54,10 +54,11 @@
                                 </div>
                                 <div class="choose-content">
                                     <div class="line" data-background="upload/images/line.png"></div>
-                                    <h2 class="title">100% Organic Meat</h2>
-                                    <p>We provide well shaped fresh and the organic meat from our farm very hygienic well.
+                                    <h2 class="title">variety of choices</h2>
+                                    <p>Various fillings such as seafood, cold meat, cheese, vegetarian dishes... for you to
+                                        choose from.
                                     </p>
-                                    <a href="services-details.html" class="link-btn">learn more</a>
+                                    <a href="#" class="link-btn">learn more</a>
                                 </div>
                             </div>
                         </div>
@@ -76,10 +77,10 @@
                                 </div>
                                 <div class="choose-content">
                                     <div class="line" data-background="upload/images/line.png"></div>
-                                    <h2 class="title">Beef Tenderloin</h2>
-                                    <p>We provide well shaped fresh and the organic meat from our farm very hygienic well.
+                                    <h2 class="title">Guaranteed raw materials</h2>
+                                    <p>All ingredients are carefully selected, full of nutrition, good for health.
                                     </p>
-                                    <a href="services-details.html" class="link-btn">learn more</a>
+                                    <a href="#" class="link-btn">learn more</a>
                                 </div>
                             </div>
                         </div>
@@ -98,10 +99,11 @@
                                 </div>
                                 <div class="choose-content">
                                     <div class="line" data-background="upload/images/line.png"></div>
-                                    <h2 class="title">Chuck Roast</h2>
-                                    <p>We provide well shaped fresh and the organic meat from our farm very hygienic well.
+                                    <h2 class="title">good price</h2>
+                                    <p>The product price is considered suitable for the market, and there are also many
+                                        attractive incentives
                                     </p>
-                                    <a href="services-details.html" class="link-btn">learn more</a>
+                                    <a href="#" class="link-btn">learn more</a>
                                 </div>
                             </div>
                         </div>

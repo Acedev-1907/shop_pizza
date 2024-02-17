@@ -47,7 +47,7 @@ class HomeController extends Controller
     public function product(Product $product)
     {
         $products = Product::where('category_id', $product->category_id)->limit(12)->get();
-        $prod_related = Product::orderBy('created_at', 'DESC')->limit(3)->get();
+        $prod_related = Product::orderBy('created_at', 'DESC')->limit(6)->get();
 
         return view('home.product', compact('product', 'products', 'prod_related'));
     }

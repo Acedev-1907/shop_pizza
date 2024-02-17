@@ -40,14 +40,15 @@
                                     @csrf
                                     <div class="contact-form-wrap">
                                         <div class="form-grp">
-                                            <input name="old_password" type="text" placeholder="Old password *" required>
+                                            <input name="old_password" type="password" placeholder="Old password *"
+                                                required>
                                             @error('old_password')
                                                 <div class="help-block">{{ $message }}</div>
                                             @enderror
                                         </div>
 
                                         <div class="form-grp">
-                                            <input name="password" type="text" placeholder="Your password *" required>
+                                            <input name="password" type="password" placeholder="Your password *" required>
                                             @error('password')
                                                 <div class="help-block">{{ $message }}</div>
                                             @enderror
