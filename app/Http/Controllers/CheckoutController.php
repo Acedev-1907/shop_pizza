@@ -32,7 +32,6 @@ class CheckoutController extends Controller
     public function post_checkout(Request $req)
     {
         $auth = auth('cus')->user();
-
         $req->validate([
             'name' => 'required',
             'email' => 'required|email',
@@ -59,7 +58,7 @@ class CheckoutController extends Controller
 
                 OrderDetail::create($data1);
             }
-
+            $auth->carts()->delete();
             $order->token = $token;
             $order->save();
             Mail::to($auth->email)->send(new OrderMail($order, $token));

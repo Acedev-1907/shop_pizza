@@ -29,28 +29,24 @@
                 <div class="container">
                     <table class="table">
                         <thead>
-                            <tr>
+                            <tr style="text-align:center">
                                 <th>ID</th>
-                                <th>Name</th>
-                                <th>Price</th>
+                                <th>Product</th>
                                 <th>Quantity</th>
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody style="text-align: center;">
                             @foreach ($carts as $item)
                                 <div class="form-group">
                                     <tr>
                                         <td scope="row">{{ $loop->index + 1 }}</td>
                                         <td>
-                                            <div style="display: flex;">
+                                            <div>
                                                 {{ $item->prod->name }}
                                                 <img src="{{ asset('/upload/product') . '/' . $item->prod->image }}"
                                                     width="140">
                                             </div>
-                                        </td>
-
-                                        <td>
                                             @if ($item->prod->sale_price > 0)
                                                 <span
                                                     style="display: inline-block;"><s>{{ number_format($item->prod->price, 0, ',', '.') }}₫</s></span>
@@ -62,22 +58,38 @@
                                                 </span>
                                             @endif
                                         </td>
+
                                         <td>
-                                            <form action="{{ route('cart.update', $item->product_id) }}" method="get"
-                                                style="display: inline-flex;">
-                                                <input type="number" value="{{ $item->quantity }}" name="quantity"
-                                                    style="max-width:35px; text-align:center" min="0">
-                                                <button style="border: none; background: none;">
-                                                    <i class="fas fa-save fa-lg" style="font-size: 25px"></i>
-                                                </button>
-                                            </form>
-                                        </td>
-                                        {{-- <td>{{ $item->quantity }}</td> --}}
-                                        <td>
-                                            <a title="Remove product from cart"
-                                                onclick="return confirm('Are you sure you want to delete?')"
-                                                href="{{ route('cart.delete', $item->product_id) }}"><i
-                                                    class="far fa-trash-alt fa-lg"></i></a>
+                                            <style>
+                                                /* Ẩn mũi tên lên và xuống */
+                                                input[type="number"]::-webkit-inner-spin-button,
+                                                input[type="number"]::-webkit-outer-spin-button {
+                                                    -webkit-appearance: none;
+                                                    margin: 0;
+                                                }
+
+                                                input[type="number"] {
+                                                    -moz-appearance: textfield;
+                                                }
+                                            </style>
+                                            <div class="product-cart-wrap">
+                                                <form action="{{ route('cart.update', $item->product_id) }}" method="get"
+                                                    style="display: -webkit-box;">
+                                                    <div class="cart-plus-minus">
+                                                        <input type="number" value="{{ $item->quantity }}" name="quantity">
+                                                    </div>
+                                                    <button style="border: none; background: none;">
+                                                        <i class="fas fa-save fa-lg"
+                                                            style="font-size: 25px; vertical-align: -webkit-baseline-middle;"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            <div class="product-cart-wrap mt-2" style="text-align: center">
+                                                <a title="Remove product from cart"
+                                                    onclick="return confirm('Are you sure you want to delete?')"
+                                                    href="{{ route('cart.delete', $item->product_id) }}"><i
+                                                        class="far fa-trash-alt fa-lg" style="font-size: 25px;"></i></a>
+                                            </div>
                                         </td>
                                     </tr>
                                 </div>

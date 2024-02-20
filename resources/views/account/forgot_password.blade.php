@@ -40,7 +40,7 @@
                                     @csrf
                                     <div class="contact-form-wrap">
                                         <div class="form-grp">
-                                            <input name="email" type="text" placeholder="Your email *" required>
+                                            <input name="email" type="email" placeholder="Your email *" required>
                                             @error('email')
                                                 <div class="help-block">{{ $message }}</div>
                                             @enderror

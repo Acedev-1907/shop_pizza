@@ -127,7 +127,7 @@
                                         </li>
 
                                         <li class="{{ Request::is('contact') ? 'active' : '' }}">
-                                            <a href="contact.html">Contact</a>
+                                            <a href="{{ route('home.contact') }}">CONTACT</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -177,7 +177,28 @@
                                         <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                                         <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                                     </ul>
+
                                 </div>
+                                <ul class="navigation">
+                                    @if (auth('cus')->check())
+                                        <li><a href="{{ route('account.profile') }}" style="font-size: 8">Hi
+                                                {{ auth('cus')->user()->name }}</a></li>
+                                        <li><a href="{{ route('account.favorite') }} "
+                                                style="font-size: 8">Favorites</a></li>
+                                        <li><a href="{{ route('account.change_password') }}"
+                                                style="font-size: 8">Change Password</a>
+                                        </li>
+                                        <li><a href="{{ route('order.history') }}" style="font-size: 8">My
+                                                Order</a></li>
+                                        <li><a href="{{ route('account.logout') }}" style="font-size: 8">Log
+                                                Out</a></li>
+                                    @else
+                                        <li><a href="{{ route('account.login') }}" style="font-size: 8">Login</a>
+                                        </li>
+                                        <li><a href="{{ route('account.register') }}"
+                                                style="font-size: 8">Register</a></li>
+                                    @endif
+                                </ul>
                             </nav>
                         </div>
                         <div class="menu-backdrop"></div>

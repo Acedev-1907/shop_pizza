@@ -213,7 +213,9 @@ class AccountController extends Controller
         $data = [
             'password' => bcrypt(request('password'))
         ];
+
         $check = $customer->update($data);
+        // dd($check);
         if ($check) {
             auth('cus')->logout();
             return redirect()->route('account.login')->with('ok', 'Update your password successfully');

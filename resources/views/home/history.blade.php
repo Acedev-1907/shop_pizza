@@ -65,7 +65,7 @@
                     <br>
                     <div class="text-center">
                         @if ($carts->count())
-                            <a href="{{ route('home.allcategory') }}" class="btn wow fadeInUp">Continue shopping</a>
+                            <a href="{{ route('home.allcategory') }}" class="btn wow fadeInUp mt-3">Continue shopping</a>
                             <a class="btn wow fadeInUp mt-3"
                                 onclick="return confirm('Are you sure to delete all products?')"
                                 href="{{ route('cart.clear') }}">Clear Shopping</a>

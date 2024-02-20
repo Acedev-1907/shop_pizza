@@ -69,11 +69,11 @@
                         </div>
                         <h5>Status:
                             <td>
-                                @if ($auth->status == 0)
+                                @if ($order->status == 0)
                                     <span style="color: red">Unconfimred.</span>
-                                @elseif ($auth->status == 1)
+                                @elseif ($order->status == 1)
                                     <span style="color: green">Confirmed.</span>
-                                @elseif ($auth->status == 2)
+                                @elseif ($order->status == 2)
                                     <span style="color: green">Delivered.</span>
                                 @else
                                     <span style="color: red">Cancelled.</span>

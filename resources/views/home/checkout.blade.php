@@ -43,7 +43,7 @@
                                 <div class="form-grp">
                                     <label for="">Email:</label>
                                     <input name="email" value="{{ $auth->email }}" type="email"
-                                        placeholder="Your email *" required>
+                                        placeholder="Your email *" required readonly style="color: #999;">
                                     @error('email')
                                         <div class="help-block">{{ $message }}</div>
                                     @enderror

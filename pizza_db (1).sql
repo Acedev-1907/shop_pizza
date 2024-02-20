@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2024 at 07:56 AM
+-- Generation Time: Feb 20, 2024 at 09:20 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -121,6 +121,42 @@ CREATE TABLE `comments` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` int(11) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `message` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `name`, `email`, `phone`, `subject`, `message`, `created_at`, `updated_at`) VALUES
+(1, 'Quí Nguyễn Phan Thành', 'thanhqui19072000@gmail.com', 794946985, 'Thắc mắc phiên bản PHP hosting là bản mấy?dwd', 'dwdwwdwdw', '2024-02-18 23:49:05', '2024-02-18 23:49:05'),
+(2, 'Quí Nguyễn Phan Thành', 'thanhqui19072000@gmail.com', 794946985, 'dwdwdww', 'dwfrty/.,nfbsdvas', '2024-02-19 00:10:15', '2024-02-19 00:10:15'),
+(3, 'Quí Nguyễn Phan Thành', 'thanhqui19072000@gmail.com', 794946985, 'Thắc mắc phiên bản PHP hosting là bản mấy?', 'dqdqdwerntm.o.,mnbv', '2024-02-19 00:12:10', '2024-02-19 00:12:10'),
+(4, 'Quí Nguyễn Phan Thành', 'thanhqui19072000@gmail.com', 794946985, 'Thắc mắc phiên bản PHP hosting là bản mấy?', 'dqdqdwerntm.o.,mnbv', '2024-02-19 00:12:50', '2024-02-19 00:12:50'),
+(5, 'Quí Nguyễn Phan Thành', 'thanhqui19072000@gmail.com', 794946985, 'Thắc mắc phiên bản PHP hosting là bản mấy?', 'dqdqdwerntm.o.,mnbv', '2024-02-19 00:13:30', '2024-02-19 00:13:30'),
+(6, 'Quí Nguyễn Phan Thành', 'thanhqui19072000@gmail.com', 794946985, 'Thắc mắc phiên bản PHP hosting là bản mấy?', 'dqdqdwerntm.o.,mnbv', '2024-02-19 00:14:59', '2024-02-19 00:14:59'),
+(7, 'Quí Nguyễn Phan Thành', 'thanhqui19072000@gmail.com', 794946985, 'Thắc mắc phiên bản PHP hosting là bản mấy?', 'dqdqdwerntm.o.,mnbv', '2024-02-19 00:16:10', '2024-02-19 00:16:10'),
+(8, 'Quí Nguyễn Phan Thành', 'thanhqui19072000@gmail.com', 794946985, 'Thắc mắc phiên bản PHP hosting là bản mấy?', 'dqdqdwerntm.o.,mnbv', '2024-02-19 00:19:15', '2024-02-19 00:19:15'),
+(9, 'Quí Nguyễn Phan Thành', 'thanhqui19072000@gmail.com', 794946985, 'Thắc mắc phiên bản PHP hosting là bản mấy?', 'dqdqdwerntm.o.,mnbv', '2024-02-19 00:21:10', '2024-02-19 00:21:10'),
+(10, 'Quí Nguyễn Phan Thành', 'thanhqui19072000@gmail.com', 794946985, 'Thắc mắc phiên bản PHP hosting là bản mấy?', 'dqdqdwerntm.o.,mnbv', '2024-02-19 00:22:08', '2024-02-19 00:22:08'),
+(11, 'Quí Nguyễn Phan Thành', 'thanhqui19072000@gmail.com', 794946985, 'phiên bản PHP hosting là bản mấy?', 'dqdqdqdqdqdqdqdqffq', '2024-02-19 00:22:20', '2024-02-19 00:22:20'),
+(12, 'Nguyễn Phan Thành Quí', 'thanhqui19072000@gmail.com', 794946985, 'qdqdqdqdqqdqdqo', 'fghjkl;\';8o8o8o8o8o8o8o8', '2024-02-19 00:23:42', '2024-02-19 00:23:42'),
+(13, 'Quí Nguyễn Phan Thành', 'thanhqui19072000@gmail.com', 794946985, 'Thắc mắc phiên bản PHP hosting là bản mấy?', 'dqdqdwerntm.o.,mnbv', '2024-02-19 00:25:30', '2024-02-19 00:25:30');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `customers`
 --
 
@@ -142,7 +178,8 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `name`, `email`, `phone`, `address`, `gender`, `password`, `email_verified_at`, `created_at`, `updated_at`) VALUES
-(5, 'Qui NguyễN', 'thanhqui19072000@gmail.com', '0325793505', '133/1 Lưu Hưu Phước', 0, '$2y$12$cHZecjbpzHCiIk1bc5WYd.xlkXrzh74aq5ExRnIw9XqDgrTIW2sju', '2024-01-04', '2024-01-04', '2024-01-04');
+(5, 'Qui NguyễN 2', 'yired19072000@gmail.com', '0325793505', '133/1 Lưu Hưu Phước', 0, '$2y$12$mkD267X50m8E4v917Nvyh.iv7C3r8dBSzJVBVPO3hoqrYyISqVjHS', '2024-01-04', '2024-01-04', '2024-02-20'),
+(6, 'Qui bro', 'yired19072001@gmail.com', '0794946985', '133/1 Nguyễn Duy', 0, '$2y$12$CkBm2LRJehhXMBgKLPKGdeqPUiIgbpcCLr/OuXLUeldKn1no/5wKu', '2024-02-19', '2024-02-19', '2024-02-19');
 
 -- --------------------------------------------------------
 
@@ -162,7 +199,7 @@ CREATE TABLE `customer_reset_tokens` (
 --
 
 INSERT INTO `customer_reset_tokens` (`email`, `token`, `created_at`, `updated_at`) VALUES
-('yired19072000@gmail.com', 'e6FI5PdaCG0fn5IKDRBN7rl5U0kgJiGJZ0ayAFr8uS8U8noPrV', '2023-12-21', '2023-12-21');
+('thanhqui19072000@gmail.com', 'GSLyupjJMlc6ubmmwT6pY6HyqfPSKiXEjPOSPYvn6FVFYLn8SI', '2024-02-18', '2024-02-18');
 
 -- --------------------------------------------------------
 
@@ -197,7 +234,8 @@ CREATE TABLE `favorites` (
 --
 
 INSERT INTO `favorites` (`id`, `customer_id`, `product_id`, `created_at`, `updated_at`) VALUES
-(163, 5, 22, '2024-01-04', '2024-01-04');
+(163, 5, 22, '2024-01-04', '2024-01-04'),
+(165, 5, 23, '2024-02-20', '2024-02-20');
 
 -- --------------------------------------------------------
 
@@ -235,12 +273,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `name`, `email`, `phone`, `address`, `token`, `status`, `customer_id`, `created_at`, `updated_at`) VALUES
-(30, 'Qui NguyễN', 'thanhqui19072000@gmail.com', '0325793505', '133/1 Lưu Hưu Phước', NULL, 2, 5, '2024-01-04', '2024-01-04'),
-(31, 'Qui NguyễN', 'thanhqui19072000@gmail.com', '0325793505', '133/1 Lưu Hưu Phước', NULL, 1, 5, '2024-01-04', '2024-01-04'),
-(32, 'Qui NguyễN', 'thanhqui19072000@gmail.com', '0325793505', '133/1 Lưu Hưu Phước', '61ush3dcsyovJEIShqsQw3TjWHdpxcbEDueXU5f3', 0, 5, '2024-01-04', '2024-01-04'),
-(33, 'Qui NguyễN', 'thanhqui19072000@gmail.com', '0325793505', '133/1 Lưu Hưu Phước', NULL, 1, 5, '2024-01-04', '2024-01-04'),
-(34, 'Kim Cương', 'thanhqui19072000@gmail.com', '0325793505', '133/1 Lưu Hưu Phước', NULL, 1, 5, '2024-01-04', '2024-01-04'),
-(35, 'Qui NguyễN', 'thanhqui19072000@gmail.com', '0325793505', '133/1 Lưu Hưu Phước', NULL, 1, 5, '2024-01-04', '2024-01-04');
+(52, 'Kim CƯơng', 'yired19072000@gmail.com', '0325793505', '133/1 Lưu Hưu Phước', NULL, 1, 5, '2024-02-20', '2024-02-20');
 
 -- --------------------------------------------------------
 
@@ -260,11 +293,7 @@ CREATE TABLE `order_details` (
 --
 
 INSERT INTO `order_details` (`order_id`, `product_id`, `quantity`, `price`) VALUES
-(30, 22, 4, 25000.00),
-(31, 22, 4, 25000.00),
-(32, 22, 4, 25000.00),
-(33, 22, 5, 25000.00),
-(34, 22, 1, 25000.00);
+(52, 22, 1, 25000.00);
 
 -- --------------------------------------------------------
 
@@ -354,7 +383,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', '$2y$12$HKcvDu4U8lYDBnDgQwxcsO8hwcd/8Rhj/Da0ukMy6g3IvUJXLLL5O', '2023-12-04', '2023-12-04');
+(1, 'Admin', 'admin@gmail.com', '$2y$12$T6QEtcjnaD74pfXah0hpt.uAtzRTIsObvw7oXTDaQ4fh9RMG2FVS2', '2023-12-04', '2023-12-04');
 
 --
 -- Indexes for dumped tables
@@ -395,6 +424,12 @@ ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
   ADD KEY `customer_id` (`customer_id`),
   ADD KEY `product_id` (`product_id`);
+
+--
+-- Indexes for table `contacts`
+--
+ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `customers`
@@ -504,10 +539,16 @@ ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `events`
@@ -519,7 +560,7 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=166;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -531,7 +572,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`

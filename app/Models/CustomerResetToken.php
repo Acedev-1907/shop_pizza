@@ -13,7 +13,7 @@ class CustomerResetToken extends Model
 
     public function customer()
     {
-        return $this->hasOne(Customer::class, 'email');
+        return $this->hasOne(Customer::class, 'email', 'email');
     }
 
     public function scopeCheckToken($q, $token)
