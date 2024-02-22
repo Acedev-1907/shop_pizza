@@ -41,25 +41,29 @@
                                     @csrf
                                     <div class="contact-form-wrap">
                                         <div class="form-grp">
-                                            <input name="name" type="text" placeholder="Your name *" required>
+                                            <input name="name" value="{{ old('name') }}" type="text"
+                                                placeholder="Your name *" required value="{{ old('name') }}">
                                             @error('name')
                                                 <div class="help-block">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-grp">
-                                            <input name="email" type="email" placeholder="Your email *" required>
+                                            <input name="email" type="email" placeholder="Your email *" required
+                                                value="{{ old('email') }}">
                                             @error('email')
                                                 <div class="help-block">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-grp">
-                                            <input name="phone" type="text" placeholder="Your phone *" required>
+                                            <input name="phone" type="text" placeholder="Your phone *" required
+                                                value="{{ old('phone') }}">
                                             @error('phone')
                                                 <div class="help-block">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-grp">
-                                            <input name="address" type="text" placeholder="Your address *" required>
+                                            <input name="address" type="text" placeholder="Your address *" required
+                                                value="{{ old('address') }}">
                                             @error('address')
                                                 <div class="help-block">{{ $message }}</div>
                                             @enderror
@@ -70,16 +74,21 @@
                                                 <option value="0">Male</option>
                                                 <option value="1">FeMale</option>
                                             </select>
+                                            @error('gender')
+                                                <div class="help-block">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="form-grp">
-                                            <input name="password" type="text" placeholder="Your password *" required>
+                                            <input name="password" type="password" placeholder="Your password *" required
+                                                value="{{ old('password') }}">
                                             @error('password')
                                                 <div class="help-block">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-grp">
-                                            <input name="confirm_password" type="text"
-                                                placeholder="Your comfirm password *" required>
+                                            <input name="confirm_password" type="password"
+                                                placeholder="Your comfirm password *" required
+                                                value="{{ old('confirm_password') }}">
                                             @error('confirm_password')
                                                 <div class="help-block">{{ $message }}</div>
                                             @enderror

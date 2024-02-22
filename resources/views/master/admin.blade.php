@@ -105,6 +105,22 @@
                         </ul>
 
                     <li
+                        class="treeview {{ request()->routeIs('customer.index') || request()->routeIs('customer.create') ? 'active' : '' }}">
+                        <a href="#">
+                            <i class="fa fa-th"></i>
+                            <span>Customer</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="{{ request()->routeIs('customer.index') ? 'active' : '' }}"><a
+                                    href="{{ route('customer.index') }}"><i class="fa fa-circle-o"></i>List</a></li>
+                            <li class="{{ request()->routeIs('customer.create') ? 'active' : '' }}"><a
+                                    href="{{ route('customer.create') }}"><i class="fa fa-circle-o"></i>Create</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li
                         class="treeview {{ request()->routeIs('product.index') || request()->routeIs('product.create') ? 'active' : '' }}">
                         <a href="#">
                             <i class="fa fa-th"></i>

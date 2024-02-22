@@ -61,6 +61,7 @@ class AccountController extends Controller
             'email' => 'required|email|min:6|max:100|unique:customers',
             'phone' => 'required|min:10|max:15|unique:customers',
             'password' => 'required|min:4',
+            'gender' => 'required',
             'confirm_password' => 'required|same:password',
         ], [
             'name.required' => 'Họ tên không được để trống',
@@ -70,6 +71,7 @@ class AccountController extends Controller
             'email.min' => 'Email tối thiểu là 6 ký tự',
             'email.max' => 'Email tối đa là 100 ký tự',
             'email.unique' => 'Email đã được đăng ký',
+            'gender.required' => 'Vui lòng chọn giới tính',
             'phone.required' => 'Số điện thoại không được để trống',
             'phone.min' => 'Số điện thoại tối thiểu là 10 ký tự',
             'phone.max' => 'Số điện thoại tối đa là 15 ký tự',
