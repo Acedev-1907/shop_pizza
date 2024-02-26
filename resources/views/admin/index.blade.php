@@ -42,62 +42,65 @@
             <!-- small box -->
             <div class="small-box bg-aqua">
                 <div class="inner">
-                    <h3>150</h3>
+                    <h3>{{ $orderCount }}</h3>
 
-                    <p>New Orders</p>
+                    <p>Orders</p>
                 </div>
-                <div class="icon">
+                <a href="{{ route('order.index') }}" class="icon">
                     <i class="ion ion-bag"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </a>
+                <a href="{{ route('order.index') }}" class="small-box-footer">More info <i
+                        class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
-        <!-- ./col -->
+
         <div class="col-lg-3 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>53<sup style="font-size: 20px">%</sup></h3>
+                    <h3>{{ $orders_success }}</h3>
 
-                    <p>Bounce Rate</p>
+                    <p>Confirmed Order</p>
                 </div>
-                <div class="icon">
-                    <i class="ion ion-stats-bars"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ route('order.filter') . '?status=1' }}" class="icon">
+                    <i class="ion ion-bag"></i>
+                </a>
+                <a href="{{ route('order.filter') . '?status=1' }}" class="small-box-footer">More info <i
+                        class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-yellow">
-                <div class="inner">
-                    <h3>44</h3>
 
-                    <p>User Registrations</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-person-add"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
             <div class="small-box bg-red">
                 <div class="inner">
-                    <h3>65</h3>
+                    <h3>{{ $orders_unconfimred }}</h3>
 
-                    <p>Unique Visitors</p>
+                    <p>Order Unconfimred</p>
                 </div>
-                <div class="icon">
-                    <i class="ion ion-pie-graph"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ route('order.filter') . '?status=0' }}" class="icon">
+                    <i class="ion ion-bag"></i>
+                </a>
+                <a href="{{ route('order.filter') . '?status=1' }}" class="small-box-footer">More info <i
+                        class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
-        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>{{ $customerCount }}</h3>
+
+                    <p>Customer</p>
+                </div>
+                <a href="{{ route('customer.create') }}" class="icon">
+                    <i class="ion ion-person-add"></i>
+                </a>
+                <a href="{{ route('customer.index') }}" class="small-box-footer">More info <i
+                        class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
+
     </div>
     <div class="row mt-3">
         <div class="col-lg-3 col-xs-6">
@@ -105,37 +108,31 @@
         </div>
         <div class="col-lg-9 col-xs-9">
             <table class="table table-hover">
+                <h3>Customer orders</h3>
                 <tbody>
                     <tr>
                         <th>ID</th>
-                        <th>User</th>
+                        <th>Name</th>
                         <th>Date</th>
                         <th>Status</th>
                     </tr>
-                    <tr>
-                        <td>183</td>
-                        <td>John Doe</td>
-                        <td>11-7-2014</td>
-                        <td><span class="label label-success">Approved</span></td>
-                    </tr>
-                    <tr>
-                        <td>219</td>
-                        <td>Alexander Pierce</td>
-                        <td>11-7-2014</td>
-                        <td><span class="label label-warning">Pending</span></td>
-                    </tr>
-                    <tr>
-                        <td>657</td>
-                        <td>Bob Doe</td>
-                        <td>11-7-2014</td>
-                        <td><span class="label label-primary">Approved</span></td>
-                    </tr>
-                    <tr>
-                        <td>175</td>
-                        <td>Mike Doe</td>
-                        <td>11-7-2014</td>
-                        <td><span class="label label-danger">Denied</span></td>
-                    </tr>
+                    @foreach ($orders_bill as $bill)
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $bill->name }}</td>
+                            <td>{{ $bill->created_at->format('d/m/Y') }}</td>
+                            <td>
+                                @if ($bill->status == 0)
+                                    <span style="color: red">Unconfimred.</span>
+                                @elseif ($bill->status == 1)
+                                    <span style="color: green">Confirmed.</span>
+                                @elseif ($bill->status == 2)
+                                    <span style="color: green">Delivered.</span>
+                                @else
+                                    <span style="color: red">Cancelled.</span>
+                                @endif
+                            </td>
+                    @endforeach
                 </tbody>
             </table>
         </div>

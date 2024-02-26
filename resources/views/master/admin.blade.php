@@ -93,7 +93,7 @@
                     <li
                         class="treeview {{ request()->routeIs('category.index') || request()->routeIs('category.create') ? 'active' : '' }}">
                         <a href="#">
-                            <i class="fa fa-archive"></i>
+                            <i class="fa fa-list"></i>
                             <span>Category</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
@@ -107,7 +107,7 @@
                     <li
                         class="treeview {{ request()->routeIs('customer.index') || request()->routeIs('customer.create') ? 'active' : '' }}">
                         <a href="#">
-                            <i class="fa fa-th"></i>
+                            <i class="fa fa-user"></i>
                             <span>Customer</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
@@ -139,7 +139,7 @@
                     <li
                         class="treeview {{ request()->routeIs('banner.index') || request()->routeIs('banner.create') ? 'active' : '' }}">
                         <a href="#">
-                            <i class="fa fa-th"></i>
+                            <i class="fa fa-image"></i>
                             <span>Banners</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
@@ -153,42 +153,43 @@
                     </li>
 
                     <li
-                        class="treeview {{ request()->routeIs('order.show') ||
-                        request()->fullUrlIs(route('order.index') . '?status=0') ||
-                        request()->fullUrlIs(route('order.index') . '?status=1') ||
-                        request()->fullUrlIs(route('order.index') . '?status=2') ||
-                        request()->fullUrlIs(route('order.index') . '?status=3')
+                        class="treeview {{ request()->routeIs('order.index') ||
+                        request()->fullUrlIs(route('order.filter') . '?status=0') ||
+                        request()->fullUrlIs(route('order.filter') . '?status=1') ||
+                        request()->fullUrlIs(route('order.filter') . '?status=2') ||
+                        request()->fullUrlIs(route('order.filter') . '?status=3')
                             ? 'active'
                             : '' }}">
                         <a href="#">
-                            <i class="fa fa-th"></i>
+                            <i class="fa fa-list"></i>
                             <span>Order</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            {{-- <li class="{{ request()->routeIs('order.index') ? 'active' : '' }}"><a
-                                    href="{{ route('order.index') }}"><i class="fa fa-circle-o"></i>List</a></li> --}}
+                            <li class="{{ request()->routeIs('order.index') ? 'active' : '' }}"><a
+                                    href="{{ route('order.index') }}"><i class="fa fa-circle-o"></i>All Order</a>
+                            </li>
                             <li
-                                class="{{ request()->fullUrlIs(route('order.index') . '?status=0') ? 'active' : '' }}">
-                                <a href="{{ route('order.index') }}?status=0">
+                                class="{{ request()->fullUrlIs(route('order.filter') . '?status=0') ? 'active' : '' }}">
+                                <a href="{{ route('order.filter') }}?status=0">
                                     <i class="fa fa-circle-o"></i>Unconfimred
                                 </a>
                             </li>
                             <li
-                                class="{{ request()->fullUrlIs(route('order.index') . '?status=1') ? 'active' : '' }}">
-                                <a href="{{ route('order.index') }}?status=1">
+                                class="{{ request()->fullUrlIs(route('order.filter') . '?status=1') ? 'active' : '' }}">
+                                <a href="{{ route('order.filter') }}?status=1">
                                     <i class="fa fa-circle-o"></i>Confirmed
                                 </a>
                             </li>
                             <li
-                                class="{{ request()->fullUrlIs(route('order.index') . '?status=2') ? 'active' : '' }}">
-                                <a href="{{ route('order.index') }}?status=2">
+                                class="{{ request()->fullUrlIs(route('order.filter') . '?status=2') ? 'active' : '' }}">
+                                <a href="{{ route('order.filter') }}?status=2">
                                     <i class="fa fa-circle-o"></i>Delivered
                                 </a>
                             </li>
                             <li
-                                class="{{ request()->fullUrlIs(route('order.index') . '?status=3') ? 'active' : '' }}">
-                                <a href="{{ route('order.index') }}?status=3">
+                                class="{{ request()->fullUrlIs(route('order.filter') . '?status=3') ? 'active' : '' }}">
+                                <a href="{{ route('order.filter') }}?status=3">
                                     <i class="fa fa-circle-o"></i>Cancelled
                                 </a>
                             </li>

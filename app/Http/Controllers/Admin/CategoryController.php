@@ -15,6 +15,14 @@ class CategoryController extends Controller
     public function index()
     {
         $cats = Category::all();
+
+        if ($key = request()->key) {
+            $cats = Category::orderBy('created_at', 'DESC')
+                ->where(function ($query) use ($key) {
+                    $query->where('name', 'LIKE', '%' . $key . '%');
+                })
+                ->paginate(10);
+        }
         return view('admin.category.index', compact('cats'));
     }
 

@@ -9,9 +9,15 @@ class OrderController extends Controller
 {
     public function index()
     {
+        $orders = Order::orderBy('id', 'DESC')->paginate();
+        return view('admin.order.index', compact('orders'));
+    }
+
+    public function filter()
+    {
         $status = request('status', 1);
         $orders = Order::orderBy('id', 'DESC')->where('status', $status)->paginate();
-        return view('admin.order.index', compact('orders'));
+        return view('admin.order.filter', compact('orders'));
     }
 
     public function show(Order $order)

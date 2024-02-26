@@ -87,6 +87,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
     Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+    Route::get('/orderfilter', [OrderController::class, 'filter'])->name('order.filter');
     Route::get('/order/detail/{order}', [OrderController::class, 'show'])->name('order.show');
     Route::get('/order/update-status/{order}', [OrderController::class, 'update'])->name('order.update');
 

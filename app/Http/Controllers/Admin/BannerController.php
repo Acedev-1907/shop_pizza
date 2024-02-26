@@ -19,6 +19,14 @@ class BannerController extends Controller
     public function index()
     {
         $banners = Banner::all();
+
+        if ($key = request()->key) {
+            $banners = Banner::orderBy('created_at', 'DESC')
+                ->where(function ($query) use ($key) {
+                    $query->where('name', 'LIKE', '%' . $key . '%');
+                })
+                ->paginate(10);
+        }
         return view('admin.banner.index', compact('banners'));
     }
 

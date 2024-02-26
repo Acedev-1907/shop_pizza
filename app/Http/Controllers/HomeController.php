@@ -18,7 +18,6 @@ class HomeController extends Controller
         $new_products = Product::orderBy('created_at', 'desc')->limit(2)->get();
         $sale_products = Product::orderBy('created_at', 'desc')->where('sale_price', '>', '0')->limit(3)->get();
         $feature_products = Product::inRandomOrder()->limit(4)->get();
-        // dd($new_products);
         return view('home.index', compact('top_product', 'topBanner', 'gallerys', 'new_products', 'sale_products', 'feature_products'));
     }
 
