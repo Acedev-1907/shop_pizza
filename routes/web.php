@@ -45,7 +45,8 @@ Route::group(['prefix' => 'account'], function () {
 
     Route::get('/favorite', [AccountController::class, 'favorite'])->name('account.favorite');
     Route::get('/register', [AccountController::class, 'register'])->name('account.register');
-    Route::post('/register', [AccountController::class, 'check_register']);
+    Route::post('/register', [AccountController::class, 'store'])->name('account.register.store');
+
 
     Route::group(['middleware' => 'customer'], function () {
         Route::get('/profile', [AccountController::class, 'profile'])->name('account.profile')->middleware('customer');

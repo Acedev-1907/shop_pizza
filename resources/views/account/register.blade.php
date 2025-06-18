@@ -37,7 +37,7 @@
                                 </div>
                                 <p>Meat provide well shaped fresh and the organic meat well <br> animals is Humans have
                                     hunted schistoric</p>
-                                <form action="" method="POST">
+                                <form action="{{ route('account.register.store') }}" method="POST">
                                     @csrf
                                     <div class="contact-form-wrap">
                                         <div class="form-grp">

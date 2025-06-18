@@ -5,7 +5,11 @@
 /vendor
 .env
 .phpunit.result.cache
-Homestead.json
-Homestead.yaml
 npm-debug.log
 yarn-error.log
+pizza_db.sql
+gude-2023-12-27.log
+hinhchuan.jpg
+demo.sql
+vite.config.js
+demo.sql

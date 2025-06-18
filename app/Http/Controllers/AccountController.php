@@ -54,7 +54,7 @@ class AccountController extends Controller
         return view('account.register');
     }
 
-    public function check_register(Request $req)
+    public function store(Request $req)
     {
         $req->validate([
             'name' => 'required|min:6|max:100',
