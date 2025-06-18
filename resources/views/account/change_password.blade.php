@@ -34,8 +34,7 @@
                                     <span class="sub-title">Experien</span>
                                     <h2 class="title">Change <span>password</span></h2>
                                 </div>
-                                <p>Meat provide well shaped fresh and the organic meat well <br> animals is Humans have
-                                    hunted schistoric</p>
+                                <p>The best pizza in the world.</p>
                                 <form action="" method="POST">
                                     @csrf
                                     <div class="contact-form-wrap">

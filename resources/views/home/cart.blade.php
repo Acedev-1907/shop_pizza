@@ -102,7 +102,7 @@
                             <a href="{{ route('home.allcategory') }}" class="btn wow fadeInUp mt-3">Continue shopping</a>
                             <a class="btn wow fadeInUp mt-3"
                                 onclick="return confirm('Are you sure to delete all products?')"
-                                href="{{ route('cart.clear') }}">Clear Shopping</a>
+                                href="{{ route('cart.clear') }}">Clear Cart</a>
                             <a href="{{ route('order.checkout') }}" class="btn wow fadeInUp mt-3">Plance Order</a>
                         @else
                             <a href="{{ route('home.allcategory') }}" class="btn wow fadeInUp mt-3">Continue shopping</a>

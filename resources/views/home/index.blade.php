@@ -300,8 +300,7 @@
                                         <div id="collapseOne" class="accordion-collapse collapse show"
                                             data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
-                                                <p>Meat provide well shaped fresh and the organic meat well animals is
-                                                    Humans have hunted schistoric times</p>
+                                                <p>The best pizza in the world.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -316,8 +315,7 @@
                                         <div id="collapseTwo" class="accordion-collapse collapse"
                                             data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
-                                                <p>Meat provide well shaped fresh and the organic meat well animals is
-                                                    Humans have hunted schistoric times</p>
+                                                <p>...</p>
                                             </div>
                                         </div>
                                     </div>
@@ -332,8 +330,7 @@
                                         <div id="collapseThree" class="accordion-collapse collapse"
                                             data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
-                                                <p>Meat provide well shaped fresh and the organic meat well animals is
-                                                    Humans have hunted schistoric times</p>
+                                                <p>...</p>
                                             </div>
                                         </div>
                                     </div>
