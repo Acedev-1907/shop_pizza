@@ -1,8 +1,5 @@
 FROM richarvey/nginx-php-fpm:3.1.6
 
-# Cập nhật package list và cài đặt supervisor
-RUN apt-get update && apt-get install -y supervisor
-
 # Copy toàn bộ mã nguồn vào container
 COPY . /var/www/html
 
@@ -20,9 +17,6 @@ ENV SKIP_COMPOSER=1
 ENV RUN_SCRIPTS=1
 ENV PHP_ERRORS_STDERR=1
 ENV REAL_IP_HEADER=1
-
-# Cài đặt supervisor
-RUN apt-get update && apt-get install -y supervisor
 
 # Supervisor config
 COPY supervisord.conf /etc/supervisord.conf
