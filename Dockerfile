@@ -13,7 +13,7 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV WEBROOT=/var/www/html/public
 
 # Optional: bỏ composer nếu bạn đã build sẵn vendor
-ENV SKIP_COMPOSER=1
+# ENV SKIP_COMPOSER=1
 ENV RUN_SCRIPTS=1
 ENV PHP_ERRORS_STDERR=1
 ENV REAL_IP_HEADER=1
@@ -22,7 +22,12 @@ ENV REAL_IP_HEADER=1
 RUN apt-get update && apt-get install -y supervisor
 
 # Supervisor config
+# Xóa file cũ nếu tồn tại (tránh cache cũ)
+RUN rm -f /etc/supervisord.conf
+
+# Copy file mới vào đúng vị trí
 COPY supervisord.conf /etc/supervisord.conf
+
 COPY docker-startup.sh /docker-startup.sh
 RUN chmod +x /docker-startup.sh
 

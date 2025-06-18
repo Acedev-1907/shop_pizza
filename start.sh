@@ -15,4 +15,4 @@ echo "Publishing cloudinary provider ..."
 php artisan vendor:publish --provider="CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider" --tag="cloudinary-laravel-config" || true
 
 echo "Starting supervisord for queue..."
-exec supervisord -c /etc/supervisord.conf
+exec supervisord -n

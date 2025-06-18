@@ -2,25 +2,25 @@ name: Deploy to Docker & Render on Production Push
 
 on:
   push:
-    branches: [ "production" ]
+    branches: ["production"]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout source
-      uses: actions/checkout@v4
+      - name: Checkout source
+        uses: actions/checkout@v4
 
-    - name: Log in to Docker Hub
-      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-    - name: Build Docker image
-      run: docker build -t yi1907/pizza-shop:latest .
+      - name: Build Docker image
+        run: docker build -t yi1907/project-pizza-shop:latest .
 
-    - name: Push Docker image
-      run: docker push yi1907/pizza-shop:latest
+      - name: Push Docker image
+        run: docker push yi1907/project-pizza-shop:latest
 
-    - name: Trigger Render deployment
-      run: |
-        curl -X POST "https://api.render.com/deploy/srv-d194b97diees73agb0jg?key=Koby9Tfm49g"
+      - name: Trigger Render deployment
+        run: |
+          curl -X POST "https://api.render.com/deploy/srv-d194b97diees73agb0jg?key=Koby9Tfm49g"
