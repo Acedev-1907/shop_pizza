@@ -32,5 +32,7 @@ COPY supervisord.conf /etc/supervisord.conf
 COPY docker-startup.sh /docker-startup.sh
 RUN chmod +x /docker-startup.sh
 
+EXPOSE 80
+
 # Chạy Laravel + Queue bằng supervisor
 CMD ["/docker-startup.sh"]
