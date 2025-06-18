@@ -18,6 +18,9 @@ ENV RUN_SCRIPTS=1
 ENV PHP_ERRORS_STDERR=1
 ENV REAL_IP_HEADER=1
 
+# Cài đặt supervisor
+RUN apt-get update && apt-get install -y supervisor
+
 # Supervisor config
 COPY supervisord.conf /etc/supervisord.conf
 COPY docker-startup.sh /docker-startup.sh
