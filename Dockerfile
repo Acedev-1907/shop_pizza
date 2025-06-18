@@ -19,7 +19,8 @@ ENV PHP_ERRORS_STDERR=1
 ENV REAL_IP_HEADER=1
 
 # Cài đặt supervisor
-RUN apt-get update && apt-get install -y supervisor
+# RUN apt-get update && apt-get install -y supervisor
+RUN apk update && apk add supervisor
 
 # Supervisor config
 # Xóa file cũ nếu tồn tại (tránh cache cũ)
