@@ -1,5 +1,8 @@
 FROM richarvey/nginx-php-fpm:3.1.6
 
+# Cập nhật package list và cài đặt supervisor
+RUN apt-get update && apt-get install -y supervisor
+
 # Copy toàn bộ mã nguồn vào container
 COPY . /var/www/html
 
