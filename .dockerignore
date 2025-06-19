@@ -1,15 +1,26 @@
-/node_modules
-/public/hot
-/public/storage
-/storage/*.key
-/vendor
-.env
+# Node, Composer, build, IDE, logs
+node_modules
+vendor
+public/build
+public/hot
+public/storage
+storage/*.key
+.env*
 .phpunit.result.cache
+.phpunit.cache
 npm-debug.log
 yarn-error.log
-pizza_db.sql
-gude-2023-12-27.log
+/.fleet
+/.idea
+/.vscode
+
+# Database, ảnh mẫu, file tạm
+*.sql
+*.log
 hinhchuan.jpg
-demo.sql
-vite.config.js
-demo.sql
+
+# Docker, scripts, test, config không cần thiết
+docker/
+scripts/
+tests/
+update_dataSQL/
