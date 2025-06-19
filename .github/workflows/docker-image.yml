@@ -1,4 +1,4 @@
-name: Deploy to Docker & Render on Production Push
+name: Deploy to Docker & OnRender on Production Push
 
 on:
   push:
