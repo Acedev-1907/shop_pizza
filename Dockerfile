@@ -1,38 +1,34 @@
+# Stage 2: Laravel + Nginx + PHP-FPM
 FROM richarvey/nginx-php-fpm:3.1.6
 
-# Copy toàn bộ mã nguồn vào container
 COPY . /var/www/html
+WORKDIR /var/www/html
+RUN composer install --no-dev --optimize-autoloader
+RUN rm -f /etc/nginx/sites-enabled/default /etc/nginx/sites-enabled/default.conf
+COPY conf/nginx/nginx-site.conf /etc/nginx/sites-enabled/default
+COPY start-web.sh /start-web.sh
+RUN chmod +x /start-web.sh
+# Fix permissions for Laravel
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
+# Image config
+ENV SKIP_COMPOSER=1
+ENV WEBROOT=/var/www/html/public
+ENV PHP_ERRORS_STDERR=1
+ENV RUN_SCRIPTS=1
+ENV REAL_IP_HEADER=1
 
 # Laravel config
 ENV APP_ENV=production
 ENV APP_DEBUG=false
 ENV LOG_CHANNEL=stderr
+
+# Allow composer to run as root
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-# Web root (Laravel public folder)
-ENV WEBROOT=/var/www/html/public
-
-# Optional: bỏ composer nếu bạn đã build sẵn vendor
-# ENV SKIP_COMPOSER=1
-ENV RUN_SCRIPTS=1
-ENV PHP_ERRORS_STDERR=1
-ENV REAL_IP_HEADER=1
-
-# Cài đặt supervisor
-# RUN apt-get update && apt-get install -y supervisor
-RUN apk update && apk add supervisor
-
-# Supervisor config
-# Xóa file cũ nếu tồn tại (tránh cache cũ)
-RUN rm -f /etc/supervisord.conf
-
-# Copy file mới vào đúng vị trí
 COPY supervisord.conf /etc/supervisord.conf
-
-COPY docker-startup.sh /docker-startup.sh
-RUN chmod +x /docker-startup.sh
 
 EXPOSE 80
 
-# Chạy Laravel + Queue bằng supervisor
-CMD ["/docker-startup.sh"]
+CMD ["supervisord", "-c", "/etc/supervisord.conf"]
