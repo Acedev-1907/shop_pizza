@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="content">
                                     <h4 class="title">Email</h4>
-                                    <span>thanhqui19072000gmail.com</span>
+                                    <span>{{ config('mail.from.address') }}</span>
                                 </div>
                             </div>
                         </div>

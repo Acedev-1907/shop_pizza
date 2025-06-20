@@ -58,7 +58,7 @@
                                 </li>
                                 <li>
                                     <i class="fas fa-envelope"></i>
-                                    <a href="mailto:thanhqui19072000@gmail.com">thanhqui19072000@gmail.com</a>
+                                    <a href="mailto:{{ config('mail.from.address') }}">{{ config('mail.from.address') }}</a>
                                 </li>
                             </ul>
                         </div>
@@ -281,7 +281,7 @@
                                     <ul class="list-wrap">
                                         <li>Nguyen Duy, District 8, Ho Chi Minh city.</li>
                                         <li><a href="tel:0123456789">+84 079 4946 985</a></li>
-                                        <li><a href="mailto:thanhqui19072000@gmai.com">thanhqui19072000@gmai.com</a>
+                                        <li><a href="mailto:{{ config('mail.from.address') }}">{{ config('mail.from.address') }}</a>
                                         </li>
                                     </ul>
                                 </div>
