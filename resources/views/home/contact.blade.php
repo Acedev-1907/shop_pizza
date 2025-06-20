@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="content">
                                     <h4 class="title">Email</h4>
-                                    <span>{{ config('mail.from.address') }}</span>
+                                    <span style="word-break: break-all;">{{ config('mail.from.address') }}</span>
                                 </div>
                             </div>
                         </div>
