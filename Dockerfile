@@ -12,6 +12,12 @@ RUN chmod +x /start-web.sh
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
+# Clear Laravel cache and views after build
+RUN php artisan config:clear && \
+    php artisan cache:clear && \
+    php artisan view:clear && \
+    php artisan optimize:clear
+
 # Image config
 ENV SKIP_COMPOSER=1
 ENV WEBROOT=/var/www/html/public
