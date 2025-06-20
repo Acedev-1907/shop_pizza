@@ -368,8 +368,9 @@
         </section>
         <!-- cta-area-end -->
 
+        <!-- TODO: Uncomment the blog section if needed -->
         <!-- blog-post-area -->
-        <section class="blog-post-area">
+        {{-- <section class="blog-post-area">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -447,7 +448,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- blog-post-area-end -->
 
     </main>
