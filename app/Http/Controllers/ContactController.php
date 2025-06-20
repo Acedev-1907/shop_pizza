@@ -32,7 +32,7 @@ class ContactController extends Controller
         ];
         // dd($data);
 
-        Mail::to(['email' => 'thanhqui19072000@gmail.com'])->send(new ContactFormMail($data));
+        Mail::to(config('mail.from.address'))->send(new ContactFormMail($data));
 
         return back()->with('msg', 'Thanks for reaching out. Your message has been sent successfully.');
     }
