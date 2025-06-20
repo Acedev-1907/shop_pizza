@@ -58,7 +58,8 @@
                                 </li>
                                 <li>
                                     <i class="fas fa-envelope"></i>
-                                    <a href="mailto:{{ config('mail.from.address') }}">{{ config('mail.from.address') }}</a>
+                                    <a
+                                        href="mailto:{{ config('mail.from.address') }}">{{ config('mail.from.address') }}</a>
                                 </li>
                             </ul>
                         </div>
@@ -151,7 +152,7 @@
                                             @endif
                                         </li>
                                         <li class="header-btn">
-                                            <a href="tel:0799999985" class="btn">+84 799 999 985</a>
+                                            <a href="tel:0799999785" class="btn">+84 799 999 785</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -281,7 +282,8 @@
                                     <ul class="list-wrap">
                                         <li>Nguyen Duy, District 8, Ho Chi Minh city.</li>
                                         <li><a href="tel:0123456789">+84 079 4946 985</a></li>
-                                        <li><a href="mailto:{{ config('mail.from.address') }}">{{ config('mail.from.address') }}</a>
+                                        <li><a
+                                                href="mailto:{{ config('mail.from.address') }}">{{ config('mail.from.address') }}</a>
                                         </li>
                                     </ul>
                                 </div>
