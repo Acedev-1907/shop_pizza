@@ -1,0 +1,49 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: shop_pizza_app
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5195:80"
+    env_file:
+      - .env
+    volumes:
+      - ./.env:/var/www/html/.env:ro
+      - shop_pizza_storage:/var/www/html/storage
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - shop_pizza_net
+
+  db:
+    image: mariadb:10.11
+    container_name: shop_pizza_db
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3312:3306"
+    environment:
+      MARIADB_DATABASE: pizza_db
+      MARIADB_USER: pizza_user
+      MARIADB_PASSWORD: pizza_secret
+      MARIADB_ROOT_PASSWORD: root_pizza_secret
+    volumes:
+      - shop_pizza_db_data:/var/lib/mysql
+      - ./pizza_db.sql:/docker-entrypoint-initdb.d/01-pizza_db.sql:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - shop_pizza_net
+
+volumes:
+  shop_pizza_db_data:
+  shop_pizza_storage:
+
+networks:
+  shop_pizza_net:
+    driver: bridge

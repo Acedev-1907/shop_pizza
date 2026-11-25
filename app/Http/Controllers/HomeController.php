@@ -14,10 +14,10 @@ class HomeController extends Controller
     {
         $topBanner = Banner::getBanner('top-banner')->first();
         $gallerys = Banner::getBanner('gallery')->get();
-        $top_product = Product::inRandomOrder()->first(); //Random Sản phẩm đầu trang
-        $new_products = Product::orderBy('created_at', 'desc')->limit(2)->get();
-        $sale_products = Product::orderBy('created_at', 'desc')->where('sale_price', '>', '0')->limit(3)->get();
-        $feature_products = Product::inRandomOrder()->limit(4)->get();
+        $top_product = Product::with('cat')->inRandomOrder()->first(); //Random Sản phẩm đầu trang
+        $new_products = Product::with('cat')->orderBy('created_at', 'desc')->limit(2)->get();
+        $sale_products = Product::with('cat')->orderBy('created_at', 'desc')->where('sale_price', '>', '0')->limit(3)->get();
+        $feature_products = Product::with('cat')->inRandomOrder()->limit(4)->get();
         return view('home.index', compact('top_product', 'topBanner', 'gallerys', 'new_products', 'sale_products', 'feature_products'));
     }
 
@@ -28,18 +28,19 @@ class HomeController extends Controller
 
     public function allcategory(Category $cat)
     {
-        $existing_products = $cat->products()->paginate(9);
-        $new_products = Product::orderBy('created_at', 'DESC')->limit(9)->get();
-
-        $products = $existing_products->merge($new_products);
+        $products = Product::with('cat')->where('status', 1)->orderBy('created_at', 'DESC')->paginate(9);
+        $new_products = Product::with('cat')->orderBy('created_at', 'DESC')->limit(3)->get();
+        if (!$cat->exists) {
+            $cat->name = 'All Products';
+        }
 
         return view('home.category', compact('cat', 'products', 'new_products'));
     }
 
     public function category(Category $cat)
     {
-        $products = $cat->products()->paginate(9);
-        $new_products = Product::orderBy('created_at', 'DESC')->limit(3)->get();
+        $products = $cat->products()->with('cat')->paginate(9);
+        $new_products = Product::with('cat')->orderBy('created_at', 'DESC')->limit(3)->get();
         return view('home.category', compact('cat', 'products', 'new_products'));
     }
 

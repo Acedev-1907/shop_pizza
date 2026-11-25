@@ -5,9 +5,11 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>@yield('title')</title>
-    <meta name="description" content="Bemet - Butcher & Meat Shop HTML Template">
+    <meta name="description" content="Pizza Shop - Fresh Artisan Pizza Delivered Hot">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('upload/favicon.png') }}">
 
     <!-- CSS here -->
@@ -20,8 +22,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/jquery-ui.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/default.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}?v=2">
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/custom-optimize.css') }}?v=1">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css" />
 </head>
@@ -312,11 +315,11 @@
                                 <h4 class="fw-title">CATEGORIES</h4>
                                 <div class="footer-link">
                                     <ul class="list-wrap">
-                                        <li><a href="contact.html">How to Order</a></li>
-                                        <li><a href="contact.html">Delivery Info</a></li>
-                                        <li><a href="contact.html">FAQs</a></li>
-                                        <li><a href="contact.html">Terms</a></li>
-                                        <li><a href="contact.html">Privacy Policy</a></li>
+                                        <li><a href="{{ route('home.allcategory') }}">All Products</a></li>
+                                        <li><a href="{{ route('home.about') }}">About Us</a></li>
+                                        <li><a href="{{ route('home.contact') }}">Contact Us</a></li>
+                                        <li><a href="{{ route('account.favorite') }}">Favorites</a></li>
+                                        <li><a href="{{ route('cart.index') }}">My Cart</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -327,30 +330,30 @@
                                 <div class="footer-instagram">
                                     <ul class="list-wrap">
 
-                                        <li><a href="#"><img
+                                        <li><a href="#"><img loading="lazy"
                                                     src="{{ asset('/assets/img/images/footer_insta01.jpg') }}"
-                                                    alt=""></a></li>
-                                        <li><a href="#"><img
+                                                    alt="Pizza gallery 1"></a></li>
+                                        <li><a href="#"><img loading="lazy"
                                                     src="{{ asset('/assets/img/images/footer_insta02.jpg') }}"
-                                                    alt=""></a></li>
-                                        <li><a href="#"><img
+                                                    alt="Pizza gallery 2"></a></li>
+                                        <li><a href="#"><img loading="lazy"
                                                     src="{{ asset('/assets/img/images/footer_insta03.jpg') }}"
-                                                    alt=""></a></li>
-                                        <li><a href="#"><img
+                                                    alt="Pizza gallery 3"></a></li>
+                                        <li><a href="#"><img loading="lazy"
                                                     src="{{ asset('/assets/img/images/footer_insta04.jpg') }}"
-                                                    alt=""></a></li>
-                                        <li><a href="#"><img
+                                                    alt="Pizza gallery 4"></a></li>
+                                        <li><a href="#"><img loading="lazy"
                                                     src="{{ asset('/assets/img/images/footer_insta05.jpg') }}"
-                                                    alt=""></a></li>
-                                        <li><a href="#"><img
+                                                    alt="Pizza gallery 5"></a></li>
+                                        <li><a href="#"><img loading="lazy"
                                                     src="{{ asset('/assets/img/images/footer_insta06.jpg') }}"
-                                                    alt=""></a></li>
-                                        <li><a href="#"><img
+                                                    alt="Pizza gallery 6"></a></li>
+                                        <li><a href="#"><img loading="lazy"
                                                     src="{{ asset('/assets/img/images/footer_insta07.jpg') }}"
-                                                    alt=""></a></li>
-                                        <li><a href="#"><img
+                                                    alt="Pizza gallery 7"></a></li>
+                                        <li><a href="#"><img loading="lazy"
                                                     src="{{ asset('/assets/img/images/footer_insta08.jpg') }}"
-                                                    alt=""></a></li>
+                                                    alt="Pizza gallery 8"></a></li>
 
                                     </ul>
                                 </div>
@@ -364,7 +367,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6 col-md-7">
                             <div class="copyright-text">
-                                <p>© 2023 By <a href="index-2.html">Bemet</a>, All Rights Reserved</p>
+                                <p>© {{ date('Y') }} By <a href="{{ route('home.index') }}">Pizza Shop</a>, All Rights Reserved</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-5">
@@ -393,7 +396,7 @@
     <script src="{{ asset('assets/js/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('assets/js/ajax-form.js') }}"></script>
     <script src="{{ asset('assets/js/wow.min.js') }}"></script>
-    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}?v=2"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
 
     @yield('js')

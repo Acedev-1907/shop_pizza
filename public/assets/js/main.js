@@ -8,11 +8,21 @@
         $('#preloader').delay(0).fadeOut();
     };
 
-    $(window).on('load', function () {
+    $(function () {
+        setTimeout(preloader, 300);
+    });
+
+    function initOnLoad() {
         preloader();
         sliderAction();
         wowAnimation();
-    });
+    }
+
+    if (document.readyState === 'complete') {
+        initOnLoad();
+    } else {
+        $(window).on('load', initOnLoad);
+    }
 
 
 

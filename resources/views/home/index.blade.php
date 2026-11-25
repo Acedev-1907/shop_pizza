@@ -201,8 +201,9 @@
                                 @foreach ($gallerys as $gallery)
                                     <div class="gallery-item">
                                         <a href="upload/gallery/{{ $gallery->image }}" class="popup-image"><img
+                                                loading="lazy"
                                                 src="upload/gallery/{{ $gallery->image }}"
-                                                alt="upload/gallery/{{ $gallery->image }}"></a>
+                                                alt="Pizza Gallery"></a>
                                     </div>
                                 @endforeach
                             </div>
@@ -231,7 +232,7 @@
                             <div class="product-item-two">
                                 <div class="product-img-two">
                                     <a href="{{ route('home.product', $fp->id) }}">
-                                        <img src="{{ asset('/upload/product') . '/' . $fp->image }}" alt=""
+                                        <img loading="lazy" src="{{ asset('/upload/product') . '/' . $fp->image }}" alt="{{ $fp->name }}"
                                             style="max-width: 140px;"></a>
                                 </div>
                                 <div class="product-content-two">

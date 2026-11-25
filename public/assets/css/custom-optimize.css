@@ -1,0 +1,95 @@
+/* ==========================================================================
+   Shop Pizza - UX/UI & Performance Enhancements
+   ========================================================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Sticky header subtle glassmorphism */
+#sticky-header.sticky-menu {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Smooth card hover micro-interactions */
+.features-item,
+.product-item,
+.product-item-two,
+.product-item-three {
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.features-item:hover,
+.product-item:hover,
+.product-item-two:hover,
+.product-item-three:hover {
+    transform: translateY(-5px);
+}
+
+/* Consistent product image framing without distortion */
+.product-img img,
+.product-img-two img,
+.product-thumb-three img,
+.features-img img {
+    object-fit: contain;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-item:hover .product-img img,
+.product-item-two:hover .product-img-two img,
+.product-item-three:hover .product-thumb-three img,
+.features-item:hover .features-img > img {
+    transform: scale(1.04);
+}
+
+/* Interactive action icons (favorite / add-to-cart) */
+.favorite-action a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.favorite-action a:hover {
+    transform: scale(1.18);
+}
+
+/* Crisp button feedback */
+.btn {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(223, 38, 20, 0.25);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Gallery image polish */
+.gallery-item img {
+    border-radius: 12px;
+    transition: transform 0.35s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.03);
+}
+
+/* Responsive product detail thumbnail active state */
+.shop-details-images-wrap .nav-tabs .nav-link {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.shop-details-images-wrap .nav-tabs .nav-link:hover {
+    transform: translateY(-2px);
+}

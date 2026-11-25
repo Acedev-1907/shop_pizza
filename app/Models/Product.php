@@ -23,8 +23,20 @@ class Product extends Model
 
     public function getFavoritedAttribute()
     {
-        $favorited = Favorite::where(['product_id' => $this->id, 'customer_id' => auth('cus')->id()])->first();
-        return $favorited ? true : false;
+        $customerId = auth('cus')->id();
+        if (!$customerId) {
+            return false;
+        }
+
+        static $favoritedIdsByCustomer = [];
+        if (!isset($favoritedIdsByCustomer[$customerId])) {
+            $favoritedIdsByCustomer[$customerId] = Favorite::where('customer_id', $customerId)
+                ->pluck('product_id')
+                ->flip()
+                ->all();
+        }
+
+        return isset($favoritedIdsByCustomer[$customerId][$this->id]);
     }
 
     //truy vấn tới favorites carts product_images

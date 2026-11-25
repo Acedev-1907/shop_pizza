@@ -34,19 +34,24 @@ class AppServiceProvider extends ServiceProvider
         //     $view->with(compact('cats_home', 'products_home'));
         // });
 
-        // Nâng cao đếm số product trong category
+        // Memoize theo request để mọi view đều có biến nhưng chỉ query tối đa 1 lần/request
         view()->composer('*', function ($view) {
-            $cats_home = Category::orderBy('name', 'ASC')
-                ->where('status', 1)
-                ->whereRaw('(SELECT COUNT(*) FROM products WHERE products.category_id = categories.id AND products.status <> 0) > 0')
-                ->get();
+            static $shared = null;
+            if ($shared === null) {
+                $cats_home = Category::orderBy('name', 'ASC')
+                    ->where('status', 1)
+                    ->whereRaw('(SELECT COUNT(*) FROM products WHERE products.category_id = categories.id AND products.status <> 0) > 0')
+                    ->get();
 
-            $products_home = Product::orderBy('name', 'ASC')
-                ->where('status', 1)
-                ->get();
+                $products_home = Product::orderBy('name', 'ASC')
+                    ->where('status', 1)
+                    ->get();
 
-            $carts = Cart::where('customer_id', auth('cus')->id())->get();
-            $view->with(compact('cats_home', 'products_home', 'carts'));
+                $customerId = auth('cus')->id();
+                $carts = $customerId ? Cart::where('customer_id', $customerId)->get() : collect();
+                $shared = compact('cats_home', 'products_home', 'carts');
+            }
+            $view->with($shared);
         });
     }
 }
